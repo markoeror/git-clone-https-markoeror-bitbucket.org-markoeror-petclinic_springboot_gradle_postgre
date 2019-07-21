@@ -72,7 +72,20 @@ public class PosetaServiceImp implements PosetaService {
 		return posetaMapper.toPosetaDto(poseta);
 	}
 
+	@Override
+	@Transactional
+	public PosetaDto savePoseta(Poseta poseta, Integer idLjubimca) {
+		Ljubimac ljubimac=ljubimacRepository.findLjubimacById(idLjubimca);
+		if(ljubimac==null)throw new EntityNotFoundException("Ljubimac sa tim Id-jem ne postoji");
+		poseta.setLjubimac(ljubimac);
+		try {
+			poseta= posetaRepository.save(poseta);
+		} catch (Exception e) {
+			throw new EntityServerErrorException("Nije sacuvana poseta");
+		}
+		return posetaMapper.toPosetaDto(poseta);
 
+	}
 
 
 }

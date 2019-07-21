@@ -3,6 +3,8 @@ package com.eror.service;
 
 import com.eror.dto.PosetaDto;
 import com.eror.dto.VlasnikDTO;
+import com.eror.entity.Poseta;
+
 
 public interface PosetaService {
 
@@ -12,6 +14,6 @@ public interface PosetaService {
 
 	public PosetaDto update(PosetaDto posetaDto, Integer idLjubimca);
 
-	
-	
+
+	public PosetaDto savePoseta(Poseta poseta, Integer idLjubimca);
 }
