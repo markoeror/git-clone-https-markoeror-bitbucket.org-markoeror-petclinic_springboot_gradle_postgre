@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("api//vlasnici")
+@RequestMapping("api/vlasnici")
 public class VlasnikControler {
 	private final ValidatorService validatorService;
 	private final VlasnikService vlasnikService;

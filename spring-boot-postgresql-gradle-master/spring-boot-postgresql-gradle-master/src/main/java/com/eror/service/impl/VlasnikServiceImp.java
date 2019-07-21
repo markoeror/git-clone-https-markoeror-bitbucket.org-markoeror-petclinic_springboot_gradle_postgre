@@ -3,15 +3,17 @@ package com.eror.service.impl;
 import java.util.List;
 import java.util.Set;
 
+import com.eror.dto.VlasnikDto;
+import com.eror.entity.Vlasnik;
+import com.eror.exception.EntityNotFoundException;
+import com.eror.mapper.VlasnikMapper;
+import com.eror.repository.VlasnikRepository;
+import com.eror.service.VlasnikService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.comtrade.dto.VlasnikDto;
-import com.comtrade.entity.Vlasnik;
-import com.comtrade.exception.EntityNotFoundException;
-import com.comtrade.mapper.VlasnikMapper;
-import com.comtrade.repository.VlasnikRepository;
+
 @Service
 public class VlasnikServiceImp implements VlasnikService {
 	private final VlasnikRepository vlasnikRepository;
@@ -25,7 +27,7 @@ public class VlasnikServiceImp implements VlasnikService {
 
 	@Override
 	@Transactional
-	public Vlasnik Save(Vlasnik vlasnik) {		
+	public Vlasnik Save(Vlasnik vlasnik) {
 		return vlasnikRepository.save(vlasnik);
 	}
 

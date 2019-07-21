@@ -1,18 +1,16 @@
 package com.eror.dto;
 
+import com.eror.entity.Ljubimac;
+import com.eror.entity.LjubimacTip;
+import com.eror.entity.Vlasnik;
+import com.eror.exception.EntityNotFoundException;
+import com.eror.mapper.LjubimacMapper;
+import com.eror.service.LjubimacService;
+import com.eror.service.LjubimacTipService;
+import com.eror.service.VlasnikService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.comtrade.entity.Ljubimac;
-import com.comtrade.entity.LjubimacTip;
-import com.comtrade.entity.Vlasnik;
-import com.comtrade.exception.EntityErrorResponse;
-import com.comtrade.exception.EntityNotFoundException;
-import com.comtrade.mapper.LjubimacMapper;
-import com.comtrade.repository.LjubimacRepository;
-import com.comtrade.service.LjubimacService;
-import com.comtrade.service.LjubimacTipService;
-import com.comtrade.service.VlasnikService;
 @Component
 public class LjubimacFasadaImp implements LjubimacFasada {
 	private final VlasnikService vlasnikService;
@@ -37,7 +35,7 @@ public class LjubimacFasadaImp implements LjubimacFasada {
 	public LjubimacDto save(Integer idVlasnika, Integer idLjubimacTip, LjubimacDto ljubimacDto) {
 		Vlasnik vlasnik= vlasnikService.findVlasnikById(idVlasnika);
 		if(vlasnik== null) {
-			throw new EntityNotFoundException("Ne postoji vlasnik sa tim Idem "+idVlasnika);			
+			throw new EntityNotFoundException("Ne postoji vlasnik sa tim Idem "+idVlasnika);
 		}
 		LjubimacTip ljubimacTip= ljubimacTipService.findLjubimacTipById(idLjubimacTip);
 		if(ljubimacTip== null) {
