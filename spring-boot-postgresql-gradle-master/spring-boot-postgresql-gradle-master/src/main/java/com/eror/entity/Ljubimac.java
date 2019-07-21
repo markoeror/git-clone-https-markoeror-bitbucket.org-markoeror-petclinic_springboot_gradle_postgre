@@ -21,6 +21,13 @@ public class Ljubimac extends ImeEntity {
     @ManyToMany(mappedBy = "setLjubimaca")
     private Set<Veterinar> setVeterinara = new HashSet<Veterinar>();
 
+    public Set<Veterinar> getSetVeterinara() {
+        return setVeterinara;
+    }
+
+    public void setSetVeterinara(Set<Veterinar> setVeterinara) {
+        this.setVeterinara = setVeterinara;
+    }
 
     public List<Poseta> getListaPoseta() {
         return listaPoseta;

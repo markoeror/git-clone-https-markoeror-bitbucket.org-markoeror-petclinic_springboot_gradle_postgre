@@ -52,4 +52,15 @@ public class Veterinar extends ImeEntity {
             return false;
         return true;
     }
+
+    //Metode za sinhronizaciju veterinara i ljubimca
+    public void addLjubimca(Ljubimac ljubimac) {
+        setLjubimaca.add(ljubimac);
+        ljubimac.getSetVeterinara().add(this);
+    }
+
+    public void removeLjbimca(Ljubimac ljubimac) {
+        setLjubimaca.remove(ljubimac);
+        ljubimac.getSetVeterinara().remove(this);
+    }
 }

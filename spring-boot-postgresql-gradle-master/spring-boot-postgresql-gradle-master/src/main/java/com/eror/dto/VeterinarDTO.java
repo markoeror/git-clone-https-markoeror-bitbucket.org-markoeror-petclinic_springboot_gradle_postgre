@@ -1,6 +1,6 @@
 package com.eror.dto;
 
-public class SpecijalnostDTO {
+public class VeterinarDTO {
 
     private int id;
     private String ime;

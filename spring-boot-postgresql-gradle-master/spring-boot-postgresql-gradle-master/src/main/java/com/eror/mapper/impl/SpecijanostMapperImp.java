@@ -12,13 +12,13 @@ public class SpecijanostMapperImp implements SpecijalnostMapper {
         SpecijalnostDTO specijalnostDTO = new SpecijalnostDTO();
         specijalnostDTO.setId(specijalnost.getId());
         specijalnostDTO.setIme(specijalnost.getIme());
-        return  specijalnostDTO;
+        return specijalnostDTO;
 
     }
 
     @Override
     public Specijalnost toSpecijalnost(SpecijalnostDTO specijalnostDTO) {
-        Specijalnost specijalnost= new Specijalnost();
+        Specijalnost specijalnost = new Specijalnost();
         specijalnost.setId(specijalnostDTO.getId());
         specijalnost.setIme(specijalnost.getIme());
         return specijalnost;

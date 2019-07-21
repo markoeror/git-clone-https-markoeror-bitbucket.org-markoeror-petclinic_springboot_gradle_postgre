@@ -17,10 +17,11 @@ import java.util.List;
 public class SpecijalnostServiceImp implements SpecijalnostService {
     private final SpecijalnostRepository specijalnostRepository;
     private final SpecijalnostMapper specijalnostMapper;
+
     @Autowired
-    public SpecijalnostServiceImp(SpecijalnostRepository specijalnostRepository,SpecijalnostMapper specijalnostMapper) {
+    public SpecijalnostServiceImp(SpecijalnostRepository specijalnostRepository, SpecijalnostMapper specijalnostMapper) {
         this.specijalnostRepository = specijalnostRepository;
-        this.specijalnostMapper=specijalnostMapper;
+        this.specijalnostMapper = specijalnostMapper;
     }
 
     @Override
@@ -32,12 +33,12 @@ public class SpecijalnostServiceImp implements SpecijalnostService {
     @Override
     @Transactional
     public List<SpecijalnostDTO> listaSpecijalnost() {
-        List<Specijalnost> listaSpec= specijalnostRepository.findAll();
-        List<SpecijalnostDTO> listaSpecDTO= new ArrayList<>();
-        if(listaSpec.isEmpty()){
+        List<Specijalnost> listaSpec = specijalnostRepository.findAll();
+        List<SpecijalnostDTO> listaSpecDTO = new ArrayList<>();
+        if (listaSpec.isEmpty()) {
             throw new EntityNotFoundException("Ne postoji ni jedana specijalnost");
         }
-        for(Specijalnost temp:listaSpec){
+        for (Specijalnost temp : listaSpec) {
             listaSpecDTO.add(specijalnostMapper.toSpecijalnostDto(temp));
         }
         return listaSpecDTO;
