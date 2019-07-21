@@ -1,32 +1,54 @@
 package com.eror.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-public class Ljubimac extends ImeEntity{
-		@JoinColumn(name="id_vlasnik")
-		@ManyToOne(fetch = FetchType.LAZY)
-		private Vlasnik vlasnik;
-		@ManyToOne(fetch = FetchType.LAZY)
-		@JoinColumn(name="id_tip")
-		private LjubimacTip ljubimacTip;
-		public LjubimacTip getLjubimacTip() {
-			return ljubimacTip;
-		}
+public class Ljubimac extends ImeEntity {
+    @JoinColumn(name = "id_vlasnik")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Vlasnik vlasnik;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_tip")
+    private LjubimacTip ljubimacTip;
 
-		public void setLjubimacTip(LjubimacTip ljubimacTip) {
-			this.ljubimacTip = ljubimacTip;
-		}
+    @OneToMany(mappedBy = "ljubimac", orphanRemoval = true, cascade = CascadeType.ALL)
+    private List<Poseta> listaPoseta = new ArrayList<>();
 
-		public Vlasnik getVlasnik() {
-			return vlasnik;
-		}
+    public List<Poseta> getListaPoseta() {
+        return listaPoseta;
+    }
 
-		public void setVlasnik(Vlasnik vlasnik) {
-			this.vlasnik = vlasnik;
-		}
-		
-	
+    public void setListaPoseta(List<Poseta> listaPoseta) {
+        this.listaPoseta = listaPoseta;
+    }
+
+    public LjubimacTip getLjubimacTip() {
+        return ljubimacTip;
+    }
+
+    public void setLjubimacTip(LjubimacTip ljubimacTip) {
+        this.ljubimacTip = ljubimacTip;
+    }
+
+    public Vlasnik getVlasnik() {
+        return vlasnik;
+    }
+
+    public void setVlasnik(Vlasnik vlasnik) {
+        this.vlasnik = vlasnik;
+    }
+
+
+    //Metode za sinhronizaciju ljubimaca i poseta
+    public void addPosetu(Poseta poseta) {
+        listaPoseta.add(poseta);
+        poseta.setLjubimac(this);
+    }
+
+    public void removePoseta(Poseta poseta) {
+        listaPoseta.remove(poseta);
+        poseta.setLjubimac(null);
+    }
 }

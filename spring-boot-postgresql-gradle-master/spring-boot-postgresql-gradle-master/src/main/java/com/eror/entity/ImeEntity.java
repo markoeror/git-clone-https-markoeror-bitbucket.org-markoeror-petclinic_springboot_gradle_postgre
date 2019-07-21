@@ -3,16 +3,16 @@ package com.eror.entity;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class ImeEntity extends BazniEntitet{
+public class ImeEntity extends BazniEntitet {
 
-		private String ime;
+    private String ime;
 
-		public String getIme() {
-			return ime;
-		}
+    public String getIme() {
+        return ime;
+    }
 
-		public void setIme(String ime) {
-			this.ime = ime;
-		}
-		
+    public void setIme(String ime) {
+        this.ime = ime;
+    }
+
 }

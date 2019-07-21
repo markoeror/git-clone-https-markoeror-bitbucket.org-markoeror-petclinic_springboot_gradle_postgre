@@ -7,20 +7,19 @@ import java.util.List;
 import java.util.Set;
 
 
-
 public interface VlasnikService {
 
-	public Vlasnik Save(Vlasnik vlasnik);
+    public Vlasnik Save(Vlasnik vlasnik);
 
-	public Set<Vlasnik> setVlasnika();
+    public Set<Vlasnik> setVlasnika();
 
-	public Vlasnik findVlasnikById(Integer id);
+    public Vlasnik findVlasnikById(Integer id);
 
-	public List<Vlasnik> findListaVlasnikaByPrezime(String prezime);
+    public List<Vlasnik> findListaVlasnikaByPrezime(String prezime);
 
-	public Vlasnik update(Integer id, Vlasnik vlasnik);
+    public Vlasnik update(Integer id, Vlasnik vlasnik);
 
-	public void delete(Integer id);
+    public void delete(Integer id);
 
-	public VlasnikDTO findVlasnikByDtoId(Integer id);
+    public VlasnikDTO findVlasnikByDtoId(Integer id);
 }

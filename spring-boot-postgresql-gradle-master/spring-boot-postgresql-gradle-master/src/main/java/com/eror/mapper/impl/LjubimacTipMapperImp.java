@@ -8,15 +8,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class LjubimacTipMapperImp implements LjubimacTipMapper {
     @Override
-    public LjubimacTip toLjubimacTip(LjubimacTipDTO ljubimacTipDTO){
-        LjubimacTip ljubimacTip= new LjubimacTip();
+    public LjubimacTip toLjubimacTip(LjubimacTipDTO ljubimacTipDTO) {
+        LjubimacTip ljubimacTip = new LjubimacTip();
         ljubimacTip.setId(ljubimacTipDTO.getId());
         ljubimacTip.setIme(ljubimacTipDTO.getNaziv());
-        return  ljubimacTip;
+        return ljubimacTip;
     }
+
     @Override
-    public LjubimacTipDTO toLjubimacTipDTO(LjubimacTip ljubimacTip){
-        LjubimacTipDTO ljubimacTipDTO= new LjubimacTipDTO();
+    public LjubimacTipDTO toLjubimacTipDTO(LjubimacTip ljubimacTip) {
+        LjubimacTipDTO ljubimacTipDTO = new LjubimacTipDTO();
         ljubimacTipDTO.setId(ljubimacTip.getId());
         ljubimacTipDTO.setNaziv(ljubimacTip.getIme());
         return ljubimacTipDTO;

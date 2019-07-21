@@ -21,71 +21,72 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class PosetaServiceImp implements PosetaService {
 
-	private final VlasnikRepository vlasnikRepository;
-	private final VlasnikMapper vlasnikMapper;
-	private final PosetaRepository posetaRepository;
-	private final LjubimacRepository ljubimacRepository;
-	private final PosetaMapper posetaMapper;
-	@Autowired
-	public PosetaServiceImp(VlasnikRepository vlasnikRepository, VlasnikMapper vlasnikMapper,
-			PosetaRepository posetaRepository,LjubimacRepository ljubimacRepository,PosetaMapper posetaMapper) {
-		super();
-		this.vlasnikRepository = vlasnikRepository;
-		this.vlasnikMapper = vlasnikMapper;
-		this.posetaRepository = posetaRepository;
-		this.ljubimacRepository=ljubimacRepository;
-		this.posetaMapper=posetaMapper;
-	}
+    private final VlasnikRepository vlasnikRepository;
+    private final VlasnikMapper vlasnikMapper;
+    private final PosetaRepository posetaRepository;
+    private final LjubimacRepository ljubimacRepository;
+    private final PosetaMapper posetaMapper;
+
+    @Autowired
+    public PosetaServiceImp(VlasnikRepository vlasnikRepository, VlasnikMapper vlasnikMapper,
+                            PosetaRepository posetaRepository, LjubimacRepository ljubimacRepository, PosetaMapper posetaMapper) {
+        super();
+        this.vlasnikRepository = vlasnikRepository;
+        this.vlasnikMapper = vlasnikMapper;
+        this.posetaRepository = posetaRepository;
+        this.ljubimacRepository = ljubimacRepository;
+        this.posetaMapper = posetaMapper;
+    }
 
 
-	@Override
-	@Transactional
-	public VlasnikDTO vrati(Integer idVlasnika) {
-		Vlasnik vlasnik= vlasnikRepository.findVlasnikById(idVlasnika);
-		if(vlasnik==null) throw new EntityNotFoundException("Vlasnik za id ne postoji");
-		
-		return vlasnikMapper.toVlasnikDto(vlasnik);
-	}
+    @Override
+    @Transactional
+    public VlasnikDTO vrati(Integer idVlasnika) {
+        Vlasnik vlasnik = vlasnikRepository.findVlasnikById(idVlasnika);
+        if (vlasnik == null) throw new EntityNotFoundException("Vlasnik za id ne postoji");
 
-	@Override
-	@Transactional
-	public void deletePoseta(Integer idPosete) {
-		Poseta poseta = posetaRepository.findPosetaById(idPosete);
-		if(poseta==null) throw new EntityNotFoundException("Ne postoji poseta za Id");
-		posetaRepository.delete(poseta);
-	}
+        return vlasnikMapper.toVlasnikDto(vlasnik);
+    }
+
+    @Override
+    @Transactional
+    public void deletePoseta(Integer idPosete) {
+        Poseta poseta = posetaRepository.findPosetaById(idPosete);
+        if (poseta == null) throw new EntityNotFoundException("Ne postoji poseta za Id");
+        posetaRepository.delete(poseta);
+    }
 
 
-	@Override
-	@Transactional
-	public PosetaDto update(PosetaDto posetaDto, Integer idLjubimca) {
-		Ljubimac ljubimac=ljubimacRepository.findLjubimacById(idLjubimca);
-		if(ljubimac==null)throw new EntityNotFoundException("Ljubimac sa tim Idjem ne postoji");
-		Poseta poseta= posetaMapper.toPoseta(posetaDto);
-		poseta.setLjubimac(ljubimac);
-		try {		
-			poseta= posetaRepository.save(poseta);
-		} catch (Exception e) {
-			throw new EntityServerErrorException("Nisu updejtovani podaci");
-		}
-		
-		return posetaMapper.toPosetaDto(poseta);
-	}
+    @Override
+    @Transactional
+    public PosetaDto update(PosetaDto posetaDto, Integer idLjubimca) {
+        Ljubimac ljubimac = ljubimacRepository.findLjubimacById(idLjubimca);
+        if (ljubimac == null) throw new EntityNotFoundException("Ljubimac sa tim Idjem ne postoji");
+        Poseta poseta = posetaMapper.toPoseta(posetaDto);
+        poseta.setLjubimac(ljubimac);
+        try {
+            poseta = posetaRepository.save(poseta);
+        } catch (Exception e) {
+            throw new EntityServerErrorException("Nisu updejtovani podaci");
+        }
 
-	@Override
-	@Transactional
-	public PosetaDto savePoseta(Poseta poseta, Integer idLjubimca) {
-		Ljubimac ljubimac=ljubimacRepository.findLjubimacById(idLjubimca);
-		if(ljubimac==null)throw new EntityNotFoundException("Ljubimac sa tim Id-jem ne postoji");
-		poseta.setLjubimac(ljubimac);
-		try {
-			poseta= posetaRepository.save(poseta);
-		} catch (Exception e) {
-			throw new EntityServerErrorException("Nije sacuvana poseta");
-		}
-		return posetaMapper.toPosetaDto(poseta);
+        return posetaMapper.toPosetaDto(poseta);
+    }
 
-	}
+    @Override
+    @Transactional
+    public PosetaDto savePoseta(Poseta poseta, Integer idLjubimca) {
+        Ljubimac ljubimac = ljubimacRepository.findLjubimacById(idLjubimca);
+        if (ljubimac == null) throw new EntityNotFoundException("Ljubimac sa tim Id-jem ne postoji");
+        poseta.setLjubimac(ljubimac);
+        try {
+            poseta = posetaRepository.save(poseta);
+        } catch (Exception e) {
+            throw new EntityServerErrorException("Nije sacuvana poseta");
+        }
+        return posetaMapper.toPosetaDto(poseta);
+
+    }
 
 
 }
