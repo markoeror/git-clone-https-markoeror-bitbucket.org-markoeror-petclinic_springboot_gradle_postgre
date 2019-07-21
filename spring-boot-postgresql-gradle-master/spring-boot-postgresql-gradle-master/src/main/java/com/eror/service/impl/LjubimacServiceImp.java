@@ -3,6 +3,7 @@ package com.eror.service.impl;
 import java.util.List;
 
 import com.eror.dto.LjubimacDto;
+
 import com.eror.entity.Ljubimac;
 import com.eror.entity.LjubimacTip;
 import com.eror.entity.Vlasnik;
@@ -33,11 +34,12 @@ public class LjubimacServiceImp implements LjubimacService {
 		this.ljubimacMapper=ljubimacMapper;
 		this.ljubimacTIpRepository=ljubimacTIpRepository;
 	}
-	@Override
-	public List<Ljubimac> listaLjubimaca() {
-		return ljubimacRepository.findAll();
+	public List<Ljubimac> listaLjubimaca(){
+		List<Ljubimac> listaLjubimaca = ljubimacRepository.findAll();
+		return listaLjubimaca;
 	}
 	@Override
+	@Transactional
 	public LjubimacDto save(Ljubimac ljubimac) {
 		ljubimac= ljubimacRepository.save(ljubimac);
 		LjubimacDto ljubimacDto= ljubimacMapper.toLjubimacDto(ljubimac);
