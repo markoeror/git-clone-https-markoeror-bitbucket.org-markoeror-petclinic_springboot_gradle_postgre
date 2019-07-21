@@ -1,12 +1,12 @@
 package com.eror.mapper;
 
 
-import com.eror.dto.VlasnikDto;
+import com.eror.dto.VlasnikDTO;
 import com.eror.entity.Vlasnik;
 
 public interface VlasnikMapper {
 
-	public VlasnikDto toVlasnikDto(Vlasnik vlasnik);
+	public VlasnikDTO toVlasnikDto(Vlasnik vlasnik);
 	
 	
 }

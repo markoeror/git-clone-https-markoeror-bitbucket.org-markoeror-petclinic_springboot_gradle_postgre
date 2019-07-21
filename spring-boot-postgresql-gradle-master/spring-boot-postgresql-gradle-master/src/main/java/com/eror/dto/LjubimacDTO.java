@@ -1,6 +1,6 @@
 package com.eror.dto;
 
-public class LjubimacDto {
+public class LjubimacDTO {
 
 	private int id;
 	private String naziv;

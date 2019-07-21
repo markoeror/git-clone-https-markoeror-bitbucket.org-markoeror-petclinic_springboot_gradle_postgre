@@ -23,9 +23,14 @@ public class LjubimacTipServiceImp implements LjubimacTipService {
 		return ljubimacTipRepository.findAll();
 	}
 	@Override
+	@Transactional
 	public LjubimacTip findLjubimacTipById(Integer idLjubimacTip) {
 		// TODO Auto-generated method stub
 		return ljubimacTipRepository.findLjubimacTipById(idLjubimacTip);
 	}
-
+	@Override
+	@Transactional
+	public  LjubimacTip save(LjubimacTip ljubimacTip){
+		return  ljubimacTipRepository.save(ljubimacTip);
+	}
 }

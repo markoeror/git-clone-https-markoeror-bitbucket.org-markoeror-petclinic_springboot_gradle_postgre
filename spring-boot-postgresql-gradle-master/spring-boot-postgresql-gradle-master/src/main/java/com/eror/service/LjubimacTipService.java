@@ -7,4 +7,6 @@ public interface LjubimacTipService {
 	public List<LjubimacTip> listaTipovaLjubimaca();
 
 	public LjubimacTip findLjubimacTipById(Integer idLjubimacTip);
+
+    LjubimacTip save(LjubimacTip ljubimacTip);
 }

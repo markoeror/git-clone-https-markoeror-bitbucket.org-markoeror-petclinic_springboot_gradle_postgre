@@ -16,14 +16,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/user")
-public class UserController {
+public class UserControler {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
+    private final Logger LOGGER = LoggerFactory.getLogger(UserControler.class);
     private final UserService userService;
     private final UserMapper userConverter;
 
     @Autowired
-    public UserController(UserService userService, UserMapper userConverter) {
+    public UserControler(UserService userService, UserMapper userConverter) {
         this.userService = userService;
         this.userConverter = userConverter;
     }

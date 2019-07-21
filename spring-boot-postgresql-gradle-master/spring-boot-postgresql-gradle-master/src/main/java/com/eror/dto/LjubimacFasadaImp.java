@@ -32,7 +32,7 @@ public class LjubimacFasadaImp implements LjubimacFasada {
 
 
 	@Override
-	public LjubimacDto save(Integer idVlasnika, Integer idLjubimacTip, LjubimacDto ljubimacDto) {
+	public LjubimacDTO save(Integer idVlasnika, Integer idLjubimacTip, LjubimacDTO ljubimacDto) {
 		Vlasnik vlasnik= vlasnikService.findVlasnikById(idVlasnika);
 		if(vlasnik== null) {
 			throw new EntityNotFoundException("Ne postoji vlasnik sa tim Idem "+idVlasnika);
@@ -45,7 +45,7 @@ public class LjubimacFasadaImp implements LjubimacFasada {
 		ljubimac.setIme(ljubimacDto.getNaziv());
 		ljubimac.setLjubimacTip(ljubimacTip);
 		ljubimac.setVlasnik(vlasnik);
-		LjubimacDto ljubimacDto1=ljubimacService.save(ljubimac);
+		LjubimacDTO ljubimacDto1=ljubimacService.save(ljubimac);
 		return ljubimacDto1;
 	}
 

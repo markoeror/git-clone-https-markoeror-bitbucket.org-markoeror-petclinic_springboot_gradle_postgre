@@ -3,7 +3,7 @@ package com.eror.service.impl;
 import java.util.List;
 import java.util.Set;
 
-import com.eror.dto.VlasnikDto;
+import com.eror.dto.VlasnikDTO;
 import com.eror.entity.Vlasnik;
 import com.eror.exception.EntityNotFoundException;
 import com.eror.mapper.VlasnikMapper;
@@ -85,7 +85,7 @@ public class VlasnikServiceImp implements VlasnikService {
 
 	@Override
 	@Transactional
-	public VlasnikDto findVlasnikByDtoId(Integer id) {
+	public VlasnikDTO findVlasnikByDtoId(Integer id) {
 		Vlasnik vlasnik= vlasnikRepository.findVlasnikById(id);
 		if(vlasnik == null) {
 			throw new EntityNotFoundException("Ne postoji ni jedan vlasnik za dati ID");

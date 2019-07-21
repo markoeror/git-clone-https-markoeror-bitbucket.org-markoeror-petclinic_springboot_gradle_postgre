@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.eror.dto.LjubimacDto;
+import com.eror.dto.LjubimacDTO;
 import com.eror.dto.LjubimacFasada;
-import com.eror.dto.VlasnikDto;
+import com.eror.dto.VlasnikDTO;
 import com.eror.entity.LjubimacTip;
 import com.eror.mapper.LjubimacMapper;
 import com.eror.mapper.VlasnikMapper;
@@ -50,14 +50,14 @@ public class LjubimacKontroler {
 		this.ljubimacTipService=ljubimacTipService;
 	}
 	@GetMapping("/listaLjubimaca")
-	public ResponseEntity<List<LjubimacDto>>findAll(){
-		List<LjubimacDto>listDto=ljubimacMapper.toLjubimacDtos(ljubimacService.listaLjubimaca());
-		return new ResponseEntity<List<LjubimacDto>>(listDto,HttpStatus.OK);		
+	public ResponseEntity<List<LjubimacDTO>>findAll(){
+		List<LjubimacDTO>listDto=ljubimacMapper.toLjubimacDtos(ljubimacService.listaLjubimaca());
+		return new ResponseEntity<List<LjubimacDTO>>(listDto,HttpStatus.OK);
 	}
 	@GetMapping("/vlasnik/{id}/listaLjubimaca")
-	public ResponseEntity<VlasnikDto>listaLjubimacaZaVlasnika(@PathVariable Integer id){
-		VlasnikDto vlasnikDto=vlasnikService.findVlasnikByDtoId(id);
-		return new ResponseEntity<VlasnikDto>(vlasnikDto,HttpStatus.OK);
+	public ResponseEntity<VlasnikDTO>listaLjubimacaZaVlasnika(@PathVariable Integer id){
+		VlasnikDTO vlasnikDto=vlasnikService.findVlasnikByDtoId(id);
+		return new ResponseEntity<VlasnikDTO>(vlasnikDto,HttpStatus.OK);
 		
 	}
 	@GetMapping("/listaTipLjubimaca")
@@ -65,21 +65,21 @@ public class LjubimacKontroler {
 		return new ResponseEntity<List<LjubimacTip>>(ljubimacTipService.listaTipovaLjubimaca(),HttpStatus.OK);		
 	}
 	@PostMapping("kreirajLjubimca/{idVlasnika}/{idLjubimacTip}")
-		public ResponseEntity<?>insertLjubimac( @PathVariable Integer idVlasnika,@PathVariable Integer idLjubimacTip,@Valid @RequestBody LjubimacDto ljubimacDto,BindingResult bindingResult){
+		public ResponseEntity<?>insertLjubimac(@PathVariable Integer idVlasnika, @PathVariable Integer idLjubimacTip, @Valid @RequestBody LjubimacDTO ljubimacDto, BindingResult bindingResult){
 		ResponseEntity<?> errorMap=validatorService.validacijaServisa(bindingResult);
 		if(errorMap!=null)  return errorMap;
 		ljubimacDto= ljubimacFasada.save(idVlasnika, idLjubimacTip, ljubimacDto);			
-			return new ResponseEntity<LjubimacDto>(ljubimacDto,HttpStatus.OK);		
+			return new ResponseEntity<LjubimacDTO>(ljubimacDto,HttpStatus.OK);
 		}
 	@DeleteMapping("/deleteLjubimac")
-	public ResponseEntity<String>obrisiLjubimce(@RequestBody List<LjubimacDto>lista){
+	public ResponseEntity<String>obrisiLjubimce(@RequestBody List<LjubimacDTO>lista){
 		ljubimacService.deleteAll(lista);
 		return new ResponseEntity<String>("Obrisani ljubimci",HttpStatus.OK);		
 	}
 	@PutMapping("/updateLjubimca/{idVlasnika}/{idLjubimacTip}")
-	public ResponseEntity<LjubimacDto>updateLjubimca(@PathVariable Integer idVlasnika, @PathVariable Integer idLjubimacTip,@RequestBody LjubimacDto ljubimacDto){
+	public ResponseEntity<LjubimacDTO>updateLjubimca(@PathVariable Integer idVlasnika, @PathVariable Integer idLjubimacTip, @RequestBody LjubimacDTO ljubimacDto){
 		ljubimacDto=ljubimacService.updateLjubimca(ljubimacDto,idVlasnika,idLjubimacTip);
-		return new ResponseEntity<LjubimacDto>(ljubimacDto,HttpStatus.ACCEPTED);		
+		return new ResponseEntity<LjubimacDTO>(ljubimacDto,HttpStatus.ACCEPTED);
 	}
 	
 	

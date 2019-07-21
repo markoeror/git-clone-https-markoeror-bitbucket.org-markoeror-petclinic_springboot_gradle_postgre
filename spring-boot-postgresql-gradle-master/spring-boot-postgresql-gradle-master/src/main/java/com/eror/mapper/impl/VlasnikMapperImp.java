@@ -2,7 +2,7 @@ package com.eror.mapper.impl;
 
 
 
-import com.eror.dto.VlasnikDto;
+import com.eror.dto.VlasnikDTO;
 import com.eror.entity.Vlasnik;
 import com.eror.mapper.LjubimacMapper;
 import com.eror.mapper.VlasnikMapper;
@@ -19,8 +19,8 @@ public class VlasnikMapperImp implements VlasnikMapper {
 	}
 
 	@Override
-	public VlasnikDto toVlasnikDto(Vlasnik vlasnik) {
-		VlasnikDto vlasnikDto= new VlasnikDto();
+	public VlasnikDTO toVlasnikDto(Vlasnik vlasnik) {
+		VlasnikDTO vlasnikDto= new VlasnikDTO();
 		vlasnikDto.setId(vlasnik.getId());
 		vlasnikDto.setImeVlasnika(vlasnik.getIme());
 		vlasnikDto.setListaLjubDto(ljubimacMapper.toLjubimacDtos(vlasnik.getListLjubimac()));

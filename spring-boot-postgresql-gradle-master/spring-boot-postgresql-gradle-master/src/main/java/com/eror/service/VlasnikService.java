@@ -1,6 +1,6 @@
 package com.eror.service;
 
-import com.eror.dto.VlasnikDto;
+import com.eror.dto.VlasnikDTO;
 import com.eror.entity.Vlasnik;
 
 import java.util.List;
@@ -22,5 +22,5 @@ public interface VlasnikService {
 
 	public void delete(Integer id);
 
-	public VlasnikDto findVlasnikByDtoId(Integer id);
+	public VlasnikDTO findVlasnikByDtoId(Integer id);
 }

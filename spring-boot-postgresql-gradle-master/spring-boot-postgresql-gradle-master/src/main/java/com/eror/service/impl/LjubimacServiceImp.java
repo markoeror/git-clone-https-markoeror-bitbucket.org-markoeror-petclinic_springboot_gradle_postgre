@@ -2,7 +2,7 @@ package com.eror.service.impl;
 
 import java.util.List;
 
-import com.eror.dto.LjubimacDto;
+import com.eror.dto.LjubimacDTO;
 
 import com.eror.entity.Ljubimac;
 import com.eror.entity.LjubimacTip;
@@ -40,14 +40,14 @@ public class LjubimacServiceImp implements LjubimacService {
 	}
 	@Override
 	@Transactional
-	public LjubimacDto save(Ljubimac ljubimac) {
+	public LjubimacDTO save(Ljubimac ljubimac) {
 		ljubimac= ljubimacRepository.save(ljubimac);
-		LjubimacDto ljubimacDto= ljubimacMapper.toLjubimacDto(ljubimac);
+		LjubimacDTO ljubimacDto= ljubimacMapper.toLjubimacDto(ljubimac);
 		return ljubimacDto ;
 	}
 	@Override
 	@Transactional
-	public void deleteAll(List<LjubimacDto> lista) {
+	public void deleteAll(List<LjubimacDTO> lista) {
 		List<Ljubimac>listaLjubimaca= ljubimacMapper.toLjubimac(lista);
 		List<Ljubimac>listaLjubimacaTemp=listaLjubimaca;		
 		for(Ljubimac lj: listaLjubimacaTemp) {
@@ -58,7 +58,7 @@ public class LjubimacServiceImp implements LjubimacService {
 	}
 	@Override
 	@Transactional
-	public LjubimacDto updateLjubimca(LjubimacDto ljubimacDto, Integer idVlasnika, Integer idLjubimacTip) {
+	public LjubimacDTO updateLjubimca(LjubimacDTO ljubimacDto, Integer idVlasnika, Integer idLjubimacTip) {
 		Vlasnik vlasnik= vlasnikRepository.findVlasnikById(idVlasnika);
 		if(vlasnik==null) throw new EntityNotFoundException("Ne postoji vlasnik");
 		LjubimacTip ljubimacTip=ljubimacTIpRepository.findLjubimacTipById(idLjubimacTip);

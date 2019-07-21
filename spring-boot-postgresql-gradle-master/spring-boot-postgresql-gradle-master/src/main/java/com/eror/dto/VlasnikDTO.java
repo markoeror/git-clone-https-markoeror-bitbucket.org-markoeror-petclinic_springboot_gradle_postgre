@@ -3,11 +3,11 @@ package com.eror.dto;
 
 import java.util.List;
 
-public class VlasnikDto {
+public class VlasnikDTO {
 
 	private int id;
 	private String imeVlasnika;
-	private List<LjubimacDto>listaLjubDto;
+	private List<LjubimacDTO>listaLjubDto;
 	public int getId() {
 		return id;
 	}
@@ -20,10 +20,10 @@ public class VlasnikDto {
 	public void setImeVlasnika(String imeVlasnika) {
 		this.imeVlasnika = imeVlasnika;
 	}
-	public List<LjubimacDto> getListaLjubDto() {
+	public List<LjubimacDTO> getListaLjubDto() {
 		return listaLjubDto;
 	}
-	public void setListaLjubDto(List<LjubimacDto> listaLjubDto) {
+	public void setListaLjubDto(List<LjubimacDTO> listaLjubDto) {
 		this.listaLjubDto = listaLjubDto;
 	}
 	
