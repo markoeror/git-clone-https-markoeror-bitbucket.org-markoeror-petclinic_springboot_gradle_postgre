@@ -2,7 +2,9 @@ package com.eror.entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Ljubimac extends ImeEntity {
@@ -15,6 +17,10 @@ public class Ljubimac extends ImeEntity {
 
     @OneToMany(mappedBy = "ljubimac", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<Poseta> listaPoseta = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "setLjubimaca")
+    private Set<Veterinar> setVeterinara = new HashSet<Veterinar>();
+
 
     public List<Poseta> getListaPoseta() {
         return listaPoseta;

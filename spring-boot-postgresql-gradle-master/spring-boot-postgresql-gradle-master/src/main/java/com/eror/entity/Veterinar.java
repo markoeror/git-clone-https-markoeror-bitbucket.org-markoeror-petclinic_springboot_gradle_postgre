@@ -5,26 +5,29 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Veterinar extends  ImeEntity{
+public class Veterinar extends ImeEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_specijalnosti")
     private Specijalnost specijalnost;
 
-    @ManyToMany(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
-    @JoinTable(name="veterinar_ljubimac", joinColumns = @JoinColumn(name="id_veterinar"),inverseJoinColumns = @JoinColumn(name="id_ljubimca"))
-    private Set<Ljubimac> listaLjubimaca= new HashSet<>();
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinTable(name = "veterinar_ljubimac", joinColumns = @JoinColumn(name = "id_veterinar"), inverseJoinColumns = @JoinColumn(name = "id_ljubimca"))
+    private Set<Ljubimac> setLjubimaca = new HashSet<>();
 
     public Specijalnost getSpecijalnost() {
         return specijalnost;
     }
+
     public void setSpecijalnost(Specijalnost specijalnost) {
         this.specijalnost = specijalnost;
     }
-    public Set<Ljubimac> getListaLjubimaca() {
-        return listaLjubimaca;
+
+    public Set<Ljubimac> getSetLjubimaca() {
+        return setLjubimaca;
     }
-    public void setListaLjubimaca(Set<Ljubimac> listaLjubimaca) {
-        this.listaLjubimaca = listaLjubimaca;
+
+    public void setSetLjubimaca(Set<Ljubimac> setLjubimaca) {
+        this.setLjubimaca = setLjubimaca;
     }
 
     @Override
