@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LjubimacRepository extends JpaRepository<Ljubimac, Integer> {
 
+    Ljubimac findLjubimacById(Integer idLjubimca);
 }
