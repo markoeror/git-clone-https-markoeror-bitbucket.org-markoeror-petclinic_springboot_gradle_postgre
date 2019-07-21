@@ -1,7 +1,8 @@
 package com.eror.mapper;
 
-import com.comtrade.dto.VlasnikDto;
-import com.comtrade.entity.Vlasnik;
+
+import com.eror.dto.VlasnikDto;
+import com.eror.entity.Vlasnik;
 
 public interface VlasnikMapper {
 

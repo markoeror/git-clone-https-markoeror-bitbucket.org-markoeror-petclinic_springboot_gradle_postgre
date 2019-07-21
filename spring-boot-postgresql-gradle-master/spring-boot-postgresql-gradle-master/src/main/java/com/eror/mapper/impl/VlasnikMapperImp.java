@@ -1,11 +1,14 @@
-package com.eror.mapper;
+package com.eror.mapper.impl;
 
 
 
+import com.eror.dto.VlasnikDto;
+import com.eror.entity.Vlasnik;
+import com.eror.mapper.LjubimacMapper;
+import com.eror.mapper.VlasnikMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import com.comtrade.dto.VlasnikDto;
-import com.comtrade.entity.Vlasnik;
+
 @Component
 public class VlasnikMapperImp implements VlasnikMapper {
 	private final LjubimacMapper ljubimacMapper;

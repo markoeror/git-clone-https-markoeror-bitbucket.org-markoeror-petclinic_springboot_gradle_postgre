@@ -1,10 +1,11 @@
-package com.eror.mapper;
+package com.eror.mapper.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.eror.dto.LjubimacDto;
 import com.eror.entity.Ljubimac;
+import com.eror.mapper.LjubimacMapper;
 import org.springframework.stereotype.Component;
 
 
