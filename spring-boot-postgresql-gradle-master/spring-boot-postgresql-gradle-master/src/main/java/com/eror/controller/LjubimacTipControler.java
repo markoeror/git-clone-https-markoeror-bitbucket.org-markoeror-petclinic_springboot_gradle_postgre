@@ -16,12 +16,12 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/api/ljubimacTip")
 public class LjubimacTipControler {
-    private  final LjubimacTipRepository ljubimacTipRepository;
+
     private final LjubimacTipService ljubimacTipService;
     private final ValidatorService validatorService;
     @Autowired
-    public LjubimacTipControler(ValidatorService validatorService,LjubimacTipRepository ljubimacTipRepository, LjubimacTipService ljubimacTipService) {
-        this.ljubimacTipRepository = ljubimacTipRepository;
+    public LjubimacTipControler(ValidatorService validatorService, LjubimacTipService ljubimacTipService) {
+
         this.ljubimacTipService = ljubimacTipService;
         this.validatorService= validatorService;
     }
@@ -32,5 +32,12 @@ public class LjubimacTipControler {
         if(errorMap!=null) return errorMap;
         LjubimacTip ljubimacTip2= ljubimacTipService.save(ljubimacTip);
         return new ResponseEntity<>(ljubimacTip2, HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<LjubimacTip>vratiLjubimacTip(@PathVariable Integer id){
+        LjubimacTip ljubimacTip= ljubimacTipService.findLjubimacTipById(id);
+        return  new ResponseEntity<>(ljubimacTip, HttpStatus.OK);
+
     }
 }
