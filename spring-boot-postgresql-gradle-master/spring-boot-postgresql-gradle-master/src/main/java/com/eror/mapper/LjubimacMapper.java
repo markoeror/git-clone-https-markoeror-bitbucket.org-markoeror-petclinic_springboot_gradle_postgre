@@ -4,6 +4,7 @@ import com.eror.dto.LjubimacDTO;
 import com.eror.entity.Ljubimac;
 
 import java.util.List;
+import java.util.Set;
 
 public interface LjubimacMapper {
 
@@ -14,4 +15,6 @@ public interface LjubimacMapper {
     List<LjubimacDTO> toLjubimacDtos(List<Ljubimac> list);
 
     List<Ljubimac> toLjubimac(List<LjubimacDTO> list);
+
+    Set<LjubimacDTO> toLjubimacDTOsSet(Set<Ljubimac>list);
 }

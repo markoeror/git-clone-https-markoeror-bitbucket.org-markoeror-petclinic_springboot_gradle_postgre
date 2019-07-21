@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Component
 public class VeterinarFasadaImp implements VeterinarFasada {
     private final VeterinarRepository veterinarRepository;
@@ -26,18 +29,17 @@ public class VeterinarFasadaImp implements VeterinarFasada {
 
     @Override
     @Transactional
-    public Veterinar kreirajVeterinara(Veterinar veterinar, Integer idSpecijalizacije, Integer idLjubimca) {
+    public Veterinar kreirajVeterinara(Veterinar veterinar, Integer idSpecijalizacije) {
         Specijalnost specijalnost = specijalnostRepository.findOne(idSpecijalizacije);
         if (specijalnost == null) {
             throw new EntityNotFoundException("Specijalnost sa ovim Id-em ne postoji");
         }
-        Ljubimac ljubimac = ljubimacRepository.findLjubimacById(idLjubimca);
-        if (ljubimac == null) {
-            throw new EntityNotFoundException("Ljubimac sa ovim Id-em ne postoji");
-        }
-        veterinar.addLjubimca(ljubimac);
+
         veterinar.setSpecijalnost(specijalnost);
+        Set<Ljubimac>setLjubimaca= new HashSet<>();
+        veterinar.setSetLjubimaca(setLjubimaca);
         veterinarRepository.save(veterinar);
+
         return veterinar;
     }
 }

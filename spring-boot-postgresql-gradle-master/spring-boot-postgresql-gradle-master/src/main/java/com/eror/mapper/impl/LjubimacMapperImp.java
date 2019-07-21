@@ -6,7 +6,9 @@ import com.eror.mapper.LjubimacMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Component
@@ -51,6 +53,18 @@ public class LjubimacMapperImp implements LjubimacMapper {
             lista.add(ljubimac);
         }
         return lista;
+    }
+
+    @Override
+    public Set<LjubimacDTO> toLjubimacDTOsSet(Set<Ljubimac> set) {
+        Set<LjubimacDTO>setLjubimacaDto= new HashSet<>();
+        for (Ljubimac lj: set){
+            LjubimacDTO ljubimacDTO= new LjubimacDTO();
+            ljubimacDTO.setId(lj.getId());
+            ljubimacDTO.setNaziv(lj.getIme());
+            setLjubimacaDto.add(ljubimacDTO);
+        }
+        return setLjubimacaDto;
     }
 
 }
