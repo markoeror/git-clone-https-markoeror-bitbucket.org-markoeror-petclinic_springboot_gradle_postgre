@@ -1,11 +1,11 @@
-package com.eror.model;
+package com.eror.entity;
 
 import javax.persistence.*;
 
 @Entity
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private String username;
     private String password;

@@ -1,6 +1,6 @@
 package com.eror.service;
 
-import com.eror.model.User;
+import com.eror.entity.User;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package com.eror.mapper;
 
 import com.eror.dto.UserDTO;
-import com.eror.model.User;
+import com.eror.entity.User;
 import org.springframework.stereotype.Component;
 
 @Component

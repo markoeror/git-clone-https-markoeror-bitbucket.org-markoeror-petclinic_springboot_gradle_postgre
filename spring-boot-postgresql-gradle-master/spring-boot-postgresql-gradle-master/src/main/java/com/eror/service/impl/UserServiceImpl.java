@@ -1,6 +1,6 @@
 package com.eror.service.impl;
 
-import com.eror.model.User;
+import com.eror.entity.User;
 import com.eror.repository.UserRepository;
 import com.eror.service.UserService;
 import org.slf4j.Logger;
