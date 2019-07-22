@@ -36,7 +36,7 @@ public class VeterinarServiceImp implements VeterinarService {
     public VeterinarDTO vratiVeterinaraById(Integer id) {
         Veterinar veterinar = veterinarRepository.findOne(id);
         if(veterinar==null)throw new EntityNotFoundException("Ne postoji veterinar sa datim Id-jem");
-        VeterinarDTO veterinarDTO= veterinarMapper.toVeterinarDTO(veterinar);
+        VeterinarDTO veterinarDTO= veterinarMapper.toVeterinarDTOPosete(veterinar);
         return veterinarDTO;
     }
 
@@ -46,7 +46,7 @@ public class VeterinarServiceImp implements VeterinarService {
         List<Veterinar>listaVeterinara= veterinarRepository.findAll();
         List<VeterinarDTO>listaVeterDTO= new ArrayList<>();
         for (Veterinar v:listaVeterinara) {
-            listaVeterDTO.add(veterinarMapper.toVeterinarDTOPosete(v));
+            listaVeterDTO.add(veterinarMapper.toVeterinarDTO(v));
 
         }
         return listaVeterDTO;

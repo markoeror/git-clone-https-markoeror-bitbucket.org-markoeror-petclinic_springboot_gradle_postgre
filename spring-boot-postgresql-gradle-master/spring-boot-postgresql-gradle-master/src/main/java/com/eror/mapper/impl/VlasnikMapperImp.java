@@ -23,7 +23,7 @@ public class VlasnikMapperImp implements VlasnikMapper {
         VlasnikDTO vlasnikDto = new VlasnikDTO();
         vlasnikDto.setId(vlasnik.getId());
         vlasnikDto.setImeVlasnika(vlasnik.getIme());
-        vlasnikDto.setListaLjubDto(ljubimacMapper.toLjubimacDtos(vlasnik.getListLjubimac()));
+        vlasnikDto.setListaLjubDto(ljubimacMapper.toLjubimacDtosPoseta(vlasnik.getListLjubimac()));
         return vlasnikDto;
     }
 
