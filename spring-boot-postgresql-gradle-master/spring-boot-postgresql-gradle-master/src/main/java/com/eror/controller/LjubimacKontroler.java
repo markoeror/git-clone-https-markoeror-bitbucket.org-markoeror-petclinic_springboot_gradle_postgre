@@ -21,7 +21,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/ljubimci")
+@RequestMapping("/api/ljubimac")
 public class LjubimacKontroler {
     private final LjubimacMapper ljubimacMapper;
     private final ValidatorService validatorService;
@@ -45,7 +45,7 @@ public class LjubimacKontroler {
 
     @GetMapping("/listaLjubimaca")
     public ResponseEntity<List<LjubimacDTO>> findAll() {
-        List<LjubimacDTO> listDto = ljubimacMapper.toLjubimacDtos(ljubimacService.listaLjubimaca());
+        List<LjubimacDTO> listDto = ljubimacMapper.toLjubimacDtosPoseta(ljubimacService.listaLjubimaca());
         return new ResponseEntity<List<LjubimacDTO>>(listDto, HttpStatus.OK);
     }
 

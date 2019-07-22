@@ -7,14 +7,14 @@ public class VeterinarDTO {
 
     private int id;
     private String ime;
-    private Set<LjubimacDTO> setLjubDto;
+    private List<LjubimacDTO> listLjubDto;
 
-    public Set<LjubimacDTO> getSetLjubDto() {
-        return setLjubDto;
+    public List<LjubimacDTO> getListLjubDto() {
+        return listLjubDto;
     }
 
-    public void setSetLjubDto(Set<LjubimacDTO> setLjubDto) {
-        this.setLjubDto = setLjubDto;
+    public void setListLjubDto(List<LjubimacDTO> listLjubDto) {
+        this.listLjubDto = listLjubDto;
     }
 
     public int getId() {

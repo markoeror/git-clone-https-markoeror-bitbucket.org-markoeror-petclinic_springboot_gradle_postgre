@@ -78,7 +78,7 @@ public class PosetaServiceImp implements PosetaService {
     public PosetaDto savePoseta(Poseta poseta, Integer idLjubimca) {
         Ljubimac ljubimac = ljubimacRepository.findLjubimacById(idLjubimca);
         if (ljubimac == null) throw new EntityNotFoundException("Ljubimac sa tim Id-jem ne postoji");
-        poseta.setLjubimac(ljubimac);
+        ljubimac.addPosetu(poseta);
         try {
             poseta = posetaRepository.save(poseta);
         } catch (Exception e) {

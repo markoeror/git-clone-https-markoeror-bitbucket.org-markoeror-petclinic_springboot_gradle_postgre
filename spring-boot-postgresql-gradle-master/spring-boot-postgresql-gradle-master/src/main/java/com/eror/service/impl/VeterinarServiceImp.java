@@ -46,7 +46,7 @@ public class VeterinarServiceImp implements VeterinarService {
         List<Veterinar>listaVeterinara= veterinarRepository.findAll();
         List<VeterinarDTO>listaVeterDTO= new ArrayList<>();
         for (Veterinar v:listaVeterinara) {
-            listaVeterDTO.add(veterinarMapper.toVeterinarDTO(v));
+            listaVeterDTO.add(veterinarMapper.toVeterinarDTOPosete(v));
 
         }
         return listaVeterDTO;

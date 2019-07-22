@@ -8,4 +8,6 @@ public interface VeterinarMapper {
 
     public VeterinarDTO toVeterinarDTO(Veterinar veterinar);
 
+    public VeterinarDTO toVeterinarDTOPosete(Veterinar veterinar);
+
 }
