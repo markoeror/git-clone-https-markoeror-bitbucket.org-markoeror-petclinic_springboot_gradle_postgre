@@ -47,9 +47,15 @@ public class VeterinarControler {
         VeterinarDTO veterinarDTO=veterinarService.vratiVeterinaraById(idVeterinara);
         return  new ResponseEntity<>(veterinarDTO,HttpStatus.OK);
     }
-    @GetMapping("listaVeterinara")
+    @GetMapping("/listaVeterinara")
     public ResponseEntity<?>listaVeterinara(){
         List<VeterinarDTO> listaVeterinaraDTO=veterinarService.vratiListuVeterinaraDTO();
     return new ResponseEntity< List<VeterinarDTO>>(listaVeterinaraDTO,HttpStatus.OK);
+    }
+
+    @PostMapping("/dodajLjubimca/{idVeterinara}/{idLjubimca}")
+    public ResponseEntity<String>dodavanjeLjubimcaVeterinaru(@PathVariable Integer idVeterinara,@PathVariable Integer idLjubimca){
+          VeterinarDTO veterinarDTO=  veterinarService.dodajLjubimcaVeterinaru(idVeterinara,idLjubimca);
+        return new ResponseEntity<>("Ljubimac sa Id-em "+idLjubimca+" je dodat veterinaru "+veterinarDTO.getIme(),HttpStatus.OK);
     }
 }

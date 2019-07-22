@@ -2,9 +2,11 @@ package com.eror.service.impl;
 
 
 import com.eror.dto.VeterinarDTO;
+import com.eror.entity.Ljubimac;
 import com.eror.entity.Veterinar;
 import com.eror.exception.EntityNotFoundException;
 import com.eror.mapper.VeterinarMapper;
+import com.eror.repository.LjubimacRepository;
 import com.eror.repository.VeterinarRepository;
 import com.eror.service.VeterinarService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +23,13 @@ import java.util.Set;
 public class VeterinarServiceImp implements VeterinarService {
     private final VeterinarRepository veterinarRepository;
     private  final VeterinarMapper veterinarMapper;
+    private final LjubimacRepository ljubimacRepository;
 
     @Autowired
-    public VeterinarServiceImp(VeterinarRepository veterinarRepository,VeterinarMapper veterinarMapper) {
+    public VeterinarServiceImp(VeterinarRepository veterinarRepository,VeterinarMapper veterinarMapper,LjubimacRepository ljubimacRepository) {
         this.veterinarRepository = veterinarRepository;
         this.veterinarMapper=veterinarMapper;
+        this.ljubimacRepository=ljubimacRepository;
     }
     @Override
     @Transactional
@@ -46,6 +50,18 @@ public class VeterinarServiceImp implements VeterinarService {
 
         }
         return listaVeterDTO;
+    }
+
+    @Override
+    @Transactional
+    public VeterinarDTO dodajLjubimcaVeterinaru(Integer idVeterinara, Integer idLjubimca) {
+        Veterinar veterinar = veterinarRepository.findOne(idVeterinara);
+        if(veterinar==null)throw new EntityNotFoundException("Ne postoji veterinar sa datim Id-jem");
+        Ljubimac ljubimac= ljubimacRepository.findOne(idLjubimca);
+        if(ljubimac==null)throw new EntityNotFoundException("Ne postoji ljubimac sa datim Id-jem");
+        veterinar.addLjubimca(ljubimac);
+        VeterinarDTO veterinarDTO= veterinarMapper.toVeterinarDTO(veterinar);
+        return veterinarDTO;
     }
 
 

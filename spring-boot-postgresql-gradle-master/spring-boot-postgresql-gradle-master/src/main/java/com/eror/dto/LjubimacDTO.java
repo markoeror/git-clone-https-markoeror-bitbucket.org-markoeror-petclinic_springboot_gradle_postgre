@@ -3,7 +3,7 @@ package com.eror.dto;
 public class LjubimacDTO {
 
     private int id;
-    private String naziv;
+    private String ime;
 
     public int getId() {
         return id;
@@ -13,11 +13,11 @@ public class LjubimacDTO {
         this.id = id;
     }
 
-    public String getNaziv() {
-        return naziv;
+    public String getIme() {
+        return ime;
     }
 
-    public void setNaziv(String naziv) {
-        this.naziv = naziv;
+    public void setIme(String ime) {
+        this.ime = ime;
     }
 }

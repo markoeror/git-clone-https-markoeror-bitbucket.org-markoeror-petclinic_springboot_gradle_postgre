@@ -41,7 +41,7 @@ public class LjubimacFasadaImp implements LjubimacFasada {
             throw new EntityNotFoundException("Ne postoji tip ljubimca sa tim Idem " + idLjubimacTip);
         }
         Ljubimac ljubimac = new Ljubimac();
-        ljubimac.setIme(ljubimacDto.getNaziv());
+        ljubimac.setIme(ljubimacDto.getIme());
         ljubimac.setLjubimacTip(ljubimacTip);
         ljubimac.setVlasnik(vlasnik);
         LjubimacDTO ljubimacDto1 = ljubimacService.save(ljubimac);
