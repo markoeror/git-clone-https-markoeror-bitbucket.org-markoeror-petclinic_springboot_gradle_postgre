@@ -8,11 +8,12 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Component
-public class TipPregledaMapperImp implements TipPregledaMapper{
+public class TipPregledaMapperImp implements TipPregledaMapper {
     @Override
     public TipPregledaDTO toTipPregledaDTO(TipPregleda tipPregleda) {
-        TipPregledaDTO tipPregledaDTO= new TipPregledaDTO();
+        TipPregledaDTO tipPregledaDTO = new TipPregledaDTO();
         tipPregledaDTO.setId(tipPregleda.getId());
         tipPregledaDTO.setIme(tipPregleda.getIme());
         return tipPregledaDTO;
@@ -20,7 +21,7 @@ public class TipPregledaMapperImp implements TipPregledaMapper{
 
     @Override
     public Pregled toTipPregleda(TipPregledaDTO tipPregledaDTO) {
-        Pregled tipPregleda= new Pregled();
+        Pregled tipPregleda = new Pregled();
         tipPregleda.setIme(tipPregledaDTO.getIme());
         tipPregleda.setId(tipPregledaDTO.getId());
         return tipPregleda;
@@ -28,9 +29,9 @@ public class TipPregledaMapperImp implements TipPregledaMapper{
 
     @Override
     public List<TipPregledaDTO> listTipPregledaDTO(List<TipPregleda> list) {
-        List<TipPregledaDTO> listaTipaPregledaDTO= new ArrayList<>();
-        for (TipPregleda tipPregleda:list) {
-            TipPregledaDTO tipPregledaDTO= new TipPregledaDTO();
+        List<TipPregledaDTO> listaTipaPregledaDTO = new ArrayList<>();
+        for (TipPregleda tipPregleda : list) {
+            TipPregledaDTO tipPregledaDTO = new TipPregledaDTO();
             tipPregledaDTO.setId(tipPregleda.getId());
             tipPregledaDTO.setIme(tipPregleda.getIme());
             listaTipaPregledaDTO.add(tipPregledaDTO);

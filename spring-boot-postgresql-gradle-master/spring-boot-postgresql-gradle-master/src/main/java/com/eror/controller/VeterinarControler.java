@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("api/veterinar")
@@ -25,11 +24,11 @@ public class VeterinarControler {
     private final VeterinarMapper veterinarMapper;
 
     @Autowired
-    public VeterinarControler(VeterinarFasada veterinarFasada, ValidatorService validatorService, VeterinarService veterinarService,VeterinarMapper veterinarMapper) {
+    public VeterinarControler(VeterinarFasada veterinarFasada, ValidatorService validatorService, VeterinarService veterinarService, VeterinarMapper veterinarMapper) {
         this.veterinarFasada = veterinarFasada;
         this.validatorService = validatorService;
         this.veterinarService = veterinarService;
-        this.veterinarMapper=veterinarMapper;
+        this.veterinarMapper = veterinarMapper;
     }
 
     @PostMapping("/kreiraj/{idSpecijalizacije}")
@@ -38,24 +37,25 @@ public class VeterinarControler {
         if (errorMap != null) return errorMap;
         String ime = veterinar.getIme();
         Veterinar veterinar1 = veterinarFasada.kreirajVeterinara(veterinar, idSpecijalizacije);
-        VeterinarDTO veterinarDTO= veterinarMapper.toVeterinarDTO(veterinar1);
+        VeterinarDTO veterinarDTO = veterinarMapper.toVeterinarDTO(veterinar1);
         return new ResponseEntity<VeterinarDTO>(veterinarDTO, HttpStatus.OK);
     }
 
     @GetMapping("/{idVeterinara}")
-    public ResponseEntity<VeterinarDTO>listaVeterinara(@PathVariable Integer idVeterinara){
-        VeterinarDTO veterinarDTO=veterinarService.vratiVeterinaraById(idVeterinara);
-        return  new ResponseEntity<>(veterinarDTO,HttpStatus.OK);
+    public ResponseEntity<VeterinarDTO> listaVeterinara(@PathVariable Integer idVeterinara) {
+        VeterinarDTO veterinarDTO = veterinarService.vratiVeterinaraById(idVeterinara);
+        return new ResponseEntity<>(veterinarDTO, HttpStatus.OK);
     }
+
     @GetMapping("/listaVeterinara")
-    public ResponseEntity<?>listaVeterinara(){
-        List<VeterinarDTO> listaVeterinaraDTO=veterinarService.vratiListuVeterinaraDTO();
-    return new ResponseEntity< List<VeterinarDTO>>(listaVeterinaraDTO,HttpStatus.OK);
+    public ResponseEntity<?> listaVeterinara() {
+        List<VeterinarDTO> listaVeterinaraDTO = veterinarService.vratiListuVeterinaraDTO();
+        return new ResponseEntity<List<VeterinarDTO>>(listaVeterinaraDTO, HttpStatus.OK);
     }
 
     @PostMapping("/dodajLjubimca/{idVeterinara}/{idLjubimca}")
-    public ResponseEntity<String>dodavanjeLjubimcaVeterinaru(@PathVariable Integer idVeterinara,@PathVariable Integer idLjubimca){
-          VeterinarDTO veterinarDTO=  veterinarService.dodajLjubimcaVeterinaru(idVeterinara,idLjubimca);
-        return new ResponseEntity<>("Ljubimac sa Id-em "+idLjubimca+" je dodat veterinaru "+veterinarDTO.getIme(),HttpStatus.OK);
+    public ResponseEntity<String> dodavanjeLjubimcaVeterinaru(@PathVariable Integer idVeterinara, @PathVariable Integer idLjubimca) {
+        VeterinarDTO veterinarDTO = veterinarService.dodajLjubimcaVeterinaru(idVeterinara, idLjubimca);
+        return new ResponseEntity<>("Ljubimac sa Id-em " + idLjubimca + " je dodat veterinaru " + veterinarDTO.getIme(), HttpStatus.OK);
     }
 }

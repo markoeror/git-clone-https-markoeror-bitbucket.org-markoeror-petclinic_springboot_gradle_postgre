@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/posete/")
@@ -44,6 +46,13 @@ public class PosetaControler {
     public ResponseEntity<PosetaDto> updatePosete(@PathVariable Integer idLjubimca, @RequestBody PosetaDto posetaDto) {
         PosetaDto posetaDto1 = posetaService.update(posetaDto, idLjubimca);
         return new ResponseEntity<PosetaDto>(posetaDto1, HttpStatus.OK);
-
     }
+
+    @GetMapping("/listaPoseta")
+    public ResponseEntity<List<PosetaDto>>listaPoseta(){
+        List<PosetaDto>listaPosetaDtoPregleda=posetaService.findAll();
+        return  new ResponseEntity<>(listaPosetaDtoPregleda,HttpStatus.OK);
+    }
+    
+
 }

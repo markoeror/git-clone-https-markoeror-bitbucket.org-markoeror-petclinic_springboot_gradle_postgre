@@ -7,9 +7,13 @@ import java.util.List;
 
 public interface PosetaMapper {
 
-    public List<PosetaDto> listaPosetaDtos(List<Poseta> list);
+    List<PosetaDto> listaPosetaDtos(List<Poseta> list);
 
-    public Poseta toPoseta(PosetaDto posetaDto);
+    Poseta toPoseta(PosetaDto posetaDto);
 
-    public PosetaDto toPosetaDto(Poseta poseta);
+    PosetaDto toPosetaDto(Poseta poseta);
+
+    List<PosetaDto> listaPosetaDtosPregledi(List<Poseta>list);
+
+
 }

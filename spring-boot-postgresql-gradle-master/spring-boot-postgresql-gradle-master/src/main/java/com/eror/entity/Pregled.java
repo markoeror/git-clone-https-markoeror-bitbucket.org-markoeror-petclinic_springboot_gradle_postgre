@@ -1,18 +1,29 @@
 package com.eror.entity;
 
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Pregled extends ImeEntity {
 
-   private Double cena;
-   @ManyToOne(fetch = FetchType.LAZY)
-   @JoinColumn(name = "id_tipPregleda")
-   private TipPregleda tipPregleda;
+    private Double cena;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_tipPregleda")
+    private TipPregleda tipPregleda;
+
+    @ManyToMany(mappedBy = "setPregleda")
+    private Set<Poseta> setPoseta = new HashSet<>();
+
+
+    public Set<Poseta> getSetPoseta() {
+        return setPoseta;
+    }
+
+    public void setSetPoseta(Set<Poseta> setPoseta) {
+        this.setPoseta = setPoseta;
+    }
 
     public TipPregleda getTipPregleda() {
         return tipPregleda;

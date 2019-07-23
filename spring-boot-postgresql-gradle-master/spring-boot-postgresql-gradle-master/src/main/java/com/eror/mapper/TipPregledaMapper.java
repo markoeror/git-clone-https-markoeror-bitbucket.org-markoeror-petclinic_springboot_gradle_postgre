@@ -8,7 +8,9 @@ import java.util.List;
 
 public interface TipPregledaMapper {
 
-    public TipPregledaDTO toTipPregledaDTO(TipPregleda tipPregleda);
-    public Pregled toTipPregleda(TipPregledaDTO tipPregledaDTO);
-    public List<TipPregledaDTO> listTipPregledaDTO(List<TipPregleda> list);
+    TipPregledaDTO toTipPregledaDTO(TipPregleda tipPregleda);
+
+    Pregled toTipPregleda(TipPregledaDTO tipPregledaDTO);
+
+    List<TipPregledaDTO> listTipPregledaDTO(List<TipPregleda> list);
 }

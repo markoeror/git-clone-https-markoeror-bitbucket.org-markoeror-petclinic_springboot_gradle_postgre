@@ -6,7 +6,7 @@ import com.eror.entity.Vlasnik;
 
 public interface VlasnikMapper {
 
-    public VlasnikDTO toVlasnikDto(Vlasnik vlasnik);
+    VlasnikDTO toVlasnikDto(Vlasnik vlasnik);
 
 
 }

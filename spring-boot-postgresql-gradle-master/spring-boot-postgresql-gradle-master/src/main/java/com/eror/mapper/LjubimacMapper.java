@@ -20,7 +20,7 @@ public interface LjubimacMapper {
 
     List<LjubimacDTO> toLjubimacDtosPoseta(List<Ljubimac> list);
 
-    Set<LjubimacDTO> toLjubimacDTOsSet(Set<Ljubimac>list);
+    Set<LjubimacDTO> toLjubimacDTOsSet(Set<Ljubimac> list);
 
 
 }

@@ -5,7 +5,7 @@ import com.eror.entity.LjubimacTip;
 
 public interface LjubimacTipMapper {
 
-    public LjubimacTip toLjubimacTip(LjubimacTipDTO ljubimacTipDTO);
+    LjubimacTip toLjubimacTip(LjubimacTipDTO ljubimacTipDTO);
 
-    public LjubimacTipDTO toLjubimacTipDTO(LjubimacTip ljubimacTip);
+    LjubimacTipDTO toLjubimacTipDTO(LjubimacTip ljubimacTip);
 }

@@ -46,11 +46,8 @@ public class Veterinar extends ImeEntity {
             return false;
         Veterinar other = (Veterinar) obj;
         if (getId() == null) {
-            if (getId() != null)
-                return false;
-        } else if (!getId().equals(getId()))
-            return false;
-        return true;
+            return getId() == null;
+        } else return getId().equals(getId());
     }
 
     //Metode za sinhronizaciju veterinara i ljubimca

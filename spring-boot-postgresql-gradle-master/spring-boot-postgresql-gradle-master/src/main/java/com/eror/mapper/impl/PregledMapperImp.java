@@ -13,7 +13,7 @@ public class PregledMapperImp implements PregledMapper {
 
     @Override
     public PregledDto toPregledDTO(Pregled pregled) {
-        PregledDto pregledDto= new PregledDto();
+        PregledDto pregledDto = new PregledDto();
         pregledDto.setId(pregled.getId());
         pregledDto.setIme(pregled.getIme());
         pregledDto.setCena(pregled.getCena());
@@ -23,9 +23,9 @@ public class PregledMapperImp implements PregledMapper {
 
     @Override
     public List<PregledDto> toPregledDTOS(List<Pregled> list) {
-        List<PregledDto> listPregledaDto= new ArrayList<>();
-        for (Pregled pregled:list) {
-            PregledDto pregledDto= new PregledDto();
+        List<PregledDto> listPregledaDto = new ArrayList<>();
+        for (Pregled pregled : list) {
+            PregledDto pregledDto = new PregledDto();
             pregledDto.setId(pregled.getId());
             pregledDto.setIme(pregled.getIme());
             pregledDto.setCena(pregled.getCena());

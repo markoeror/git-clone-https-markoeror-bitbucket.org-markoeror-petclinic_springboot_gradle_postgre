@@ -14,6 +14,7 @@ import java.util.List;
 @Component
 public class VeterinarMapperImp implements VeterinarMapper {
     private final LjubimacMapper ljubimacMapper;
+
     @Autowired
     public VeterinarMapperImp(LjubimacMapper ljubimacMapper) {
         this.ljubimacMapper = ljubimacMapper;
@@ -32,7 +33,7 @@ public class VeterinarMapperImp implements VeterinarMapper {
         VeterinarDTO veterinarDTO = new VeterinarDTO();
         veterinarDTO.setId(veterinar.getId());
         veterinarDTO.setIme(veterinar.getIme());
-        List<Ljubimac> listLjubimaca= new ArrayList<>();
+        List<Ljubimac> listLjubimaca = new ArrayList<>();
         listLjubimaca.addAll(veterinar.getSetLjubimaca());
         veterinarDTO.setListLjubDto(ljubimacMapper.toLjubimacDtos(listLjubimaca));
         return veterinarDTO;
@@ -43,7 +44,7 @@ public class VeterinarMapperImp implements VeterinarMapper {
         VeterinarDTO veterinarDTO = new VeterinarDTO();
         veterinarDTO.setId(veterinar.getId());
         veterinarDTO.setIme(veterinar.getIme());
-        List<Ljubimac> listLjubimaca= new ArrayList<>();
+        List<Ljubimac> listLjubimaca = new ArrayList<>();
         listLjubimaca.addAll(veterinar.getSetLjubimaca());
         veterinarDTO.setListLjubDto(ljubimacMapper.toLjubimacDtosPoseta(listLjubimaca));
         return veterinarDTO;

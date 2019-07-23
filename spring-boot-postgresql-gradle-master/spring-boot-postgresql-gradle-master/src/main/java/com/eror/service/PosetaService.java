@@ -5,15 +5,19 @@ import com.eror.dto.PosetaDto;
 import com.eror.dto.VlasnikDTO;
 import com.eror.entity.Poseta;
 
+import java.util.List;
+
 
 public interface PosetaService {
 
-    public VlasnikDTO vrati(Integer idVlasnika);
+    VlasnikDTO vrati(Integer idVlasnika);
 
-    public void deletePoseta(Integer idPosete);
+    void deletePoseta(Integer idPosete);
 
-    public PosetaDto update(PosetaDto posetaDto, Integer idLjubimca);
+    PosetaDto update(PosetaDto posetaDto, Integer idLjubimca);
 
 
-    public PosetaDto savePoseta(Poseta poseta, Integer idLjubimca);
+    PosetaDto savePoseta(Poseta poseta, Integer idLjubimca);
+
+    List<PosetaDto> findAll();
 }

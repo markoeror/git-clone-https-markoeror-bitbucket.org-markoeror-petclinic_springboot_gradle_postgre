@@ -1,7 +1,5 @@
 package com.eror.dto;
 
-import com.eror.entity.Poseta;
-
 import java.util.List;
 
 public class LjubimacDTO {

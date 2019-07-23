@@ -24,11 +24,11 @@ public class VlasnikControler {
     private final VlasnikMapper vlasnikMapper;
 
     @Autowired
-    public VlasnikControler(VlasnikService vlasnikService, ValidatorService validatorService,VlasnikMapper vlasnikMapper) {
+    public VlasnikControler(VlasnikService vlasnikService, ValidatorService validatorService, VlasnikMapper vlasnikMapper) {
         super();
         this.vlasnikService = vlasnikService;
         this.validatorService = validatorService;
-        this.vlasnikMapper=vlasnikMapper;
+        this.vlasnikMapper = vlasnikMapper;
     }
 
     /* VALIDACIJA */
@@ -51,7 +51,7 @@ public class VlasnikControler {
     @GetMapping("/{id}")
     public ResponseEntity<VlasnikDTO> vratiVlasnika(@PathVariable Integer id) {
         Vlasnik vlasnik = vlasnikService.findVlasnikById(id);
-        VlasnikDTO vlasnikDTO=vlasnikMapper.toVlasnikDto(vlasnik);
+        VlasnikDTO vlasnikDTO = vlasnikMapper.toVlasnikDto(vlasnik);
         return new ResponseEntity<VlasnikDTO>(vlasnikDTO, HttpStatus.OK);
     }
 

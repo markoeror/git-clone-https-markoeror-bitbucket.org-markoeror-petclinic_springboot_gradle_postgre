@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface SpecijalnostService {
 
-    public Specijalnost kreirajSpecijalnost(Specijalnost specijalnost);
+    Specijalnost kreirajSpecijalnost(Specijalnost specijalnost);
 
     List<SpecijalnostDTO> listaSpecijalnost();
 }

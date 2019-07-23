@@ -7,6 +7,7 @@ public class PregledDto {
     private Double cena;
     private String tipPregleda;
 
+
     public String getTipPregleda() {
         return tipPregleda;
     }

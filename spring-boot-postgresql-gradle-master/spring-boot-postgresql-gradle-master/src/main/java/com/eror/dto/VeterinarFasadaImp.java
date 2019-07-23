@@ -36,7 +36,7 @@ public class VeterinarFasadaImp implements VeterinarFasada {
         }
 
         veterinar.setSpecijalnost(specijalnost);
-        Set<Ljubimac>setLjubimaca= new HashSet<>();
+        Set<Ljubimac> setLjubimaca = new HashSet<>();
         veterinar.setSetLjubimaca(setLjubimaca);
         veterinarRepository.save(veterinar);
 

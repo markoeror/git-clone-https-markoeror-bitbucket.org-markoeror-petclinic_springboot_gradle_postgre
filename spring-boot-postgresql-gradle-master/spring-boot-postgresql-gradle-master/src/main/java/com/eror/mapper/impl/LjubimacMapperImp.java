@@ -1,13 +1,11 @@
 package com.eror.mapper.impl;
 
 import com.eror.dto.LjubimacDTO;
-import com.eror.dto.PosetaDto;
 import com.eror.entity.Ljubimac;
 import com.eror.mapper.LjubimacMapper;
 import com.eror.mapper.PosetaMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -18,6 +16,7 @@ import java.util.Set;
 @Component
 public class LjubimacMapperImp implements LjubimacMapper {
     private final PosetaMapper posetaMapper;
+
     @Autowired
     public LjubimacMapperImp(PosetaMapper posetaMapper) {
         this.posetaMapper = posetaMapper;
@@ -68,7 +67,7 @@ public class LjubimacMapperImp implements LjubimacMapper {
             LjubimacDTO ljubimacDto = new LjubimacDTO();
             ljubimacDto.setId(ljubimac.getId());
             ljubimacDto.setIme(ljubimac.getIme());
-            ljubimacDto.setListaPoseta(posetaMapper.listaPosetaDtos(ljubimac.getListaPoseta()));
+            ljubimacDto.setListaPoseta(posetaMapper.listaPosetaDtosPregledi(ljubimac.getListaPoseta()));
             listLjubimacDto.add(ljubimacDto);
 
         }
@@ -89,9 +88,9 @@ public class LjubimacMapperImp implements LjubimacMapper {
 
     @Override
     public Set<LjubimacDTO> toLjubimacDTOsSet(Set<Ljubimac> set) {
-        Set<LjubimacDTO>setLjubimacaDto= new HashSet<>();
-        for (Ljubimac lj: set){
-            LjubimacDTO ljubimacDTO= new LjubimacDTO();
+        Set<LjubimacDTO> setLjubimacaDto = new HashSet<>();
+        for (Ljubimac lj : set) {
+            LjubimacDTO ljubimacDTO = new LjubimacDTO();
             ljubimacDTO.setId(lj.getId());
             ljubimacDTO.setIme(lj.getIme());
             setLjubimacaDto.add(ljubimacDTO);

@@ -17,6 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 @Service
 public class PosetaServiceImp implements PosetaService {
@@ -86,6 +88,14 @@ public class PosetaServiceImp implements PosetaService {
         }
         return posetaMapper.toPosetaDto(poseta);
 
+    }
+
+    @Override
+    @Transactional
+    public List<PosetaDto> findAll() {
+        List<Poseta>listaPoseta= posetaRepository.findAll();
+        List<PosetaDto>listaPosetaDto= posetaMapper.listaPosetaDtosPregledi(listaPoseta);
+        return listaPosetaDto;
     }
 
 

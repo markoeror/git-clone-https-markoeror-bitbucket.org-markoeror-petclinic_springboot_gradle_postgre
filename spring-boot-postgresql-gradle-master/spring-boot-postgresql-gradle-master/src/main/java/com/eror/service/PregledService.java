@@ -6,6 +6,7 @@ import com.eror.entity.Pregled;
 import java.util.List;
 
 public interface PregledService {
-    public PregledDto sacuvajPregled(Pregled pregled, Integer idTipPregleda);
-    public List<PregledDto> listaPregledaDTO();
+    PregledDto sacuvajPregled(Pregled pregled, Integer idTipPregleda);
+
+    List<PregledDto> listaPregledaDTO();
 }
