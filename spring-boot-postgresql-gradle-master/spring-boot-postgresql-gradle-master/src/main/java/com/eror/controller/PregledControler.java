@@ -28,10 +28,16 @@ public class PregledControler {
     }
 
     @PostMapping("/kreiraj/{idTipPregleda}")
-    public ResponseEntity<?>kreirajPregled(@Valid @RequestBody Pregled pregled,@PathVariable String idTipPregleda, BindingResult bindingResult){
+    public ResponseEntity<?>kreirajPregled(@Valid @RequestBody Pregled pregled,@PathVariable Integer idTipPregleda, BindingResult bindingResult){
         ResponseEntity<?> errorMap = validatorService.validacijaServisa(bindingResult);
         if (errorMap != null) return errorMap;
         PregledDto pregledDto= pregledService.sacuvajPregled(pregled,idTipPregleda);
-        return  new ResponseEntity<>(pregled,HttpStatus.ACCEPTED);
+        return  new ResponseEntity<PregledDto>(pregledDto,HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping("/listaPregleda")
+    public ResponseEntity<List<PregledDto>>listaPregleda(){
+        List<PregledDto>listaPregledaDTO=pregledService.listaPregledaDTO();
+        return new ResponseEntity<>(listaPregledaDTO,HttpStatus.OK);
     }
 }

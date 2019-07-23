@@ -5,6 +5,15 @@ public class PregledDto {
     private int id;
     private String ime;
     private Double cena;
+    private String tipPregleda;
+
+    public String getTipPregleda() {
+        return tipPregleda;
+    }
+
+    public void setTipPregleda(String tipPregleda) {
+        this.tipPregleda = tipPregleda;
+    }
 
     public int getId() {
         return id;

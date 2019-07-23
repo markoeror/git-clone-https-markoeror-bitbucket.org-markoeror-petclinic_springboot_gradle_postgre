@@ -9,4 +9,5 @@ import java.util.List;
 public interface TipPregledaService {
     public TipPregledaDTO sacuvajTipPregleda(TipPregleda tipPregleda);
     public List<TipPregleda> listaTipPregleda();
+    public TipPregleda findTipPregledaById(Integer id);
 }

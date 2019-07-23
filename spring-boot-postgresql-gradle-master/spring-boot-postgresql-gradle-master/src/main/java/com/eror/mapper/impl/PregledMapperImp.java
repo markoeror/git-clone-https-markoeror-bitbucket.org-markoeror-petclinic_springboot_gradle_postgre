@@ -17,7 +17,7 @@ public class PregledMapperImp implements PregledMapper {
         pregledDto.setId(pregled.getId());
         pregledDto.setIme(pregled.getIme());
         pregledDto.setCena(pregled.getCena());
-
+        pregledDto.setTipPregleda(pregled.getTipPregleda().getIme());
         return pregledDto;
     }
 
@@ -29,6 +29,7 @@ public class PregledMapperImp implements PregledMapper {
             pregledDto.setId(pregled.getId());
             pregledDto.setIme(pregled.getIme());
             pregledDto.setCena(pregled.getCena());
+            pregledDto.setTipPregleda(pregled.getTipPregleda().getIme());
             listPregledaDto.add(pregledDto);
         }
         return listPregledaDto;

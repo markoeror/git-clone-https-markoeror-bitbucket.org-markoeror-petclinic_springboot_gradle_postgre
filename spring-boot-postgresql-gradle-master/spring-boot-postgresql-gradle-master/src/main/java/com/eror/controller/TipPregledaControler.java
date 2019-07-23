@@ -2,6 +2,7 @@ package com.eror.controller;
 
 import com.eror.dto.TipPregledaDTO;
 import com.eror.entity.Pregled;
+import com.eror.entity.TipPregleda;
 import com.eror.mapper.TipPregledaMapper;
 import com.eror.service.TipPregledaService;
 import com.eror.service.ValidatorService;
@@ -31,7 +32,7 @@ public class TipPregledaControler {
     }
 
     @PostMapping("/kreiraj")
-    public ResponseEntity<?>kreirajPregled(@Valid @RequestBody Pregled tipPregleda, BindingResult bindingResult){
+    public ResponseEntity<?>kreirajPregled(@Valid @RequestBody TipPregleda tipPregleda, BindingResult bindingResult){
         ResponseEntity<?> errorMap = validatorService.validacijaServisa(bindingResult);
         if (errorMap != null) return errorMap;
         TipPregledaDTO tipPregledaDTO= tipPregledaService.sacuvajTipPregleda(tipPregleda);

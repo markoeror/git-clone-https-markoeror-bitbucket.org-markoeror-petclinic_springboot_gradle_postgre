@@ -14,14 +14,14 @@ public class TipPregledaMapperImp implements TipPregledaMapper{
     public TipPregledaDTO toTipPregledaDTO(TipPregleda tipPregleda) {
         TipPregledaDTO tipPregledaDTO= new TipPregledaDTO();
         tipPregledaDTO.setId(tipPregleda.getId());
-        tipPregledaDTO.setNazivTipaPregleda(tipPregleda.getIme());
+        tipPregledaDTO.setIme(tipPregleda.getIme());
         return tipPregledaDTO;
     }
 
     @Override
     public Pregled toTipPregleda(TipPregledaDTO tipPregledaDTO) {
         Pregled tipPregleda= new Pregled();
-        tipPregleda.setIme(tipPregledaDTO.getNazivTipaPregleda());
+        tipPregleda.setIme(tipPregledaDTO.getIme());
         tipPregleda.setId(tipPregledaDTO.getId());
         return tipPregleda;
     }
@@ -32,7 +32,7 @@ public class TipPregledaMapperImp implements TipPregledaMapper{
         for (TipPregleda tipPregleda:list) {
             TipPregledaDTO tipPregledaDTO= new TipPregledaDTO();
             tipPregledaDTO.setId(tipPregleda.getId());
-            tipPregledaDTO.setNazivTipaPregleda(tipPregleda.getIme());
+            tipPregledaDTO.setIme(tipPregleda.getIme());
             listaTipaPregledaDTO.add(tipPregledaDTO);
         }
         return listaTipaPregledaDTO;

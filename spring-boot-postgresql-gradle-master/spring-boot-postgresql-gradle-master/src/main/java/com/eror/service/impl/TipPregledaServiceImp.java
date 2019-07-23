@@ -35,4 +35,11 @@ public class TipPregledaServiceImp implements TipPregledaService {
     public List<TipPregleda> listaTipPregleda() {
         return null;
     }
+
+    @Override
+    @Transactional
+    public TipPregleda findTipPregledaById(Integer id) {
+        TipPregleda tipPregleda=tipPregledaRepository.findOne(id);
+        return tipPregleda;
+    }
 }
